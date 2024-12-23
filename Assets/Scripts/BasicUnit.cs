@@ -30,40 +30,60 @@ public class BasicUnit : MonoBehaviour
         manager = transform.parent.GetComponent<BasicUnitManager>();
         transform.localScale = Vector3.one * Mathf.Pow(0.9f, 10);
     }
-
+    public virtual void Init()
+    {
+        StartCoroutine(GrowTimeCounter());
+        transform.localScale = Vector3.one * Mathf.Pow(0.9f, 10);
+    }
     // Update is called once per frame
     public virtual void Update()
     {
-        
+
     }
     public virtual void Grow()
     {
         float growDirection = 0;
-        while (growDirection ==0 || growDirection ==1)
+        while (growDirection == 0 || growDirection == 1)
         {
             growDirection = Random.value;
         }
         Vector3 newPosition = Vector3.zero;
         if (growDirection >= 0 && growDirection < upWeight)
-            newPosition = this.transform.position+Vector3.up;
+            newPosition = this.transform.position + Vector3.up;
         else if (growDirection >= upWeight && growDirection < downWeight + upWeight)
-            newPosition = this.transform.position+Vector3.down;
+            newPosition = this.transform.position + Vector3.down;
         else if (growDirection >= downWeight + upWeight && growDirection < leftWeight + downWeight + upWeight)
-            newPosition = this.transform.position+Vector3.left;
+            newPosition = this.transform.position + Vector3.left;
         else if (growDirection >= leftWeight + downWeight + upWeight && growDirection <= 1)
-            newPosition = this.transform.position +Vector3.right;
+            newPosition = this.transform.position + Vector3.right;
         transform.localScale /= 0.9f;
-        if(!manager.existedUnits.Exists(pos => pos == newPosition))
+        if (!manager.existedUnits.Exists(pos => pos == newPosition))
         {
-            GameObject newUnit = Instantiate(this.gameObject, this.transform.parent);
-            newUnit.transform.localScale = transform.localScale * 0.9f;
-            newUnit.transform.position = newPosition;
+            GameObject newUnit;
+            if (manager.unitPool.Count != 0)
+            {
+                manager.unitPool.Peek().transform.localScale = transform.localScale * 0.9f;
+                manager.unitPool.Peek().transform.position = newPosition;
+                manager.unitPool.Peek().gameObject.SetActive(true);
+                manager.unitPool.Peek().Init();
+                manager.unitPool.Pop();
+            }
+            else
+            {
+                newUnit = Instantiate(this.gameObject, this.transform.parent);
+                newUnit.name = gameObject.name;
+                newUnit.transform.localScale = transform.localScale * 0.9f;
+                newUnit.transform.position = newPosition;
+            }
             manager.existedUnits.Add(newPosition);
         }
-        if(transform.localScale.x >1)
+        if (transform.localScale.x > 1)
         {
             manager.existedUnits.Remove(transform.position);
-            Destroy(gameObject);
+            manager.unitPool.Push(this);
+            //transform.localScale = Vector3.one * Mathf.Pow(0.9f, 10);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
         Debug.Log(transform.parent.name + " Spawn once ");
     }

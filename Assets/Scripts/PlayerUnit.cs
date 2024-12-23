@@ -14,7 +14,7 @@ public class PlayerUnit : BasicUnit
     }
     public override void Grow()
     {
-        curHealth++;
+        //urHealth++;
         base.Grow();
     }
 }
