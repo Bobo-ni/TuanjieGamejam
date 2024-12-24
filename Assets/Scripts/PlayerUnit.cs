@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerUnit : BasicUnit
 {
-    public Vector2 centerPoint;
-    public Vector2 targetPoint;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -14,7 +12,6 @@ public class PlayerUnit : BasicUnit
     }
     public override void Grow()
     {
-        //urHealth++;
         base.Grow();
     }
 }

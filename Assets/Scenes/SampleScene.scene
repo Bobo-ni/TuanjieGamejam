@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987800650}
   - component: {fileID: 987800651}
+  - component: {fileID: 987800652}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: Enemy
@@ -461,7 +462,7 @@ Transform:
   m_GameObject: {fileID: 987800648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.4, y: -10.8, z: 0}
+  m_LocalPosition: {x: -23, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -481,6 +482,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existedUnits: []
+  mesh: {fileID: 0}
+  existVertices: []
+  existTriangles: 
+--- !u!23 &987800652
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987800648}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_virtualGeometry: 0
+  m_virtualGeometryShadow: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 42c505438255c544ba9caa60c95c641c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1063708829
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,8 +660,6 @@ MonoBehaviour:
   downWeight: 1
   leftWeight: 10
   rightWeight: 1
-  centerPoint: {x: 0, y: 0}
-  targetPoint: {x: 0, y: 0}
 --- !u!1 &1355976830
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088357541}
   - component: {fileID: 2088357542}
+  - component: {fileID: 2088357543}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: Player
@@ -772,7 +819,7 @@ Transform:
   m_GameObject: {fileID: 2088357539}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.1, y: 18.7, z: 10}
+  m_LocalPosition: {x: 13, y: 18, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -792,6 +839,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existedUnits: []
+  mesh: {fileID: 0}
+  existVertices: []
+  existTriangles: 
+  centerPoint: {x: 0, y: 0}
+  targetPoint: {x: 0, y: 0}
+--- !u!23 &2088357543
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088357539}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_virtualGeometry: 0
+  m_virtualGeometryShadow: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 42c505438255c544ba9caa60c95c641c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
